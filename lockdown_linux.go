@@ -10,5 +10,5 @@ func lockdown(directory string) {
 	ll := landlock.New(
 		landlock.Dir(directory, "rwc"),
 	)
-	ll.Lock(landlock.Try)
+	ll.Lock(landlock.Mandatory)
 }
