@@ -22,6 +22,8 @@ func main() {
 	keep := set.From(os.Args[1:])
 	keep.Insert("main")
 
+	lockdown(".git") // lockout filesystem
+
 	r, err := git.PlainOpen(".")
 	check(err)
 
