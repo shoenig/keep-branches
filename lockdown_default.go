@@ -2,6 +2,6 @@
 
 package main
 
-func lockdown() {
+func lockdown(string) {
 	// do nothing
 }

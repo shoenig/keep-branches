@@ -6,9 +6,9 @@ import (
 	"github.com/shoenig/go-landlock"
 )
 
-func lockdown() {
+func lockdown(directory string) {
 	ll := landlock.New(
-		landlock.Dir(".", "rw"),
+		landlock.Dir(directory, "rwc"),
 	)
 	ll.Lock(landlock.Try)
 }

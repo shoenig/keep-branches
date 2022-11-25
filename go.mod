@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/go-git/go-git/v5 v5.4.2
 	github.com/hashicorp/go-set v0.1.6
-	github.com/shoenig/go-landlock v0.1.1
+	github.com/shoenig/go-landlock v0.1.2
 )
 
 require (
