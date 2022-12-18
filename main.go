@@ -37,7 +37,7 @@ func main() {
 	err = it.ForEach(func(ref *plumbing.Reference) error {
 		label := branch(ref)
 		if !keep.Contains(label) {
-			fmt.Println("DELETE", label)
+			fmt.Println(format(label))
 			del := hash(head, label)
 			return r.Storer.RemoveReference(del.Name())
 		}
