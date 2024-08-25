@@ -24,3 +24,8 @@ copywrite:
 		--config .github/workflows/scripts/copywrite.hcl headers \
 		--spdx "MPL-2.0"
 
+.PHONY: release
+release:
+	envy exec gh-release goreleaser release --clean
+	$(MAKE) clean
+
