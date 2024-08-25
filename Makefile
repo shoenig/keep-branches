@@ -24,6 +24,16 @@ copywrite:
 		--config .github/workflows/scripts/copywrite.hcl headers \
 		--spdx "MPL-2.0"
 
+.PHONY: build
+build: clean
+	@echo "--> Build ..."
+	CGO_ENABLED=0 go build -o output/$(NAME)
+
+.PHONY: clean
+clean:
+	@echo "--> Clean ..."
+	rm -rf dist output/$(NAME)
+
 .PHONY: release
 release:
 	envy exec gh-release goreleaser release --clean

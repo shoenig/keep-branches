@@ -16,6 +16,7 @@
 
 # Releases
 dist
+output
 
 # Go workspace files
 go.work
