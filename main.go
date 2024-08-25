@@ -1,3 +1,6 @@
+// Copyright (c) Seth Hoenig
+// SPDX-License-Identifier: MPL-2.0
+
 // Command keep-branches is used to prune your local git repository
 // of unwanted feature branches, etc.
 package main
