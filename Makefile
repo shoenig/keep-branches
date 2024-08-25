@@ -3,7 +3,7 @@ SHELL = sh
 default: test
 
 .PHONY: test
-test:
+test: vet
 	@echo "--> Running Tests ..."
 	@go test -v -race ./...
 
