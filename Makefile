@@ -7,6 +7,11 @@ test: vet
 	@echo "--> Running Tests ..."
 	@go test -v -race ./...
 
+.PHONY: lint
+lint: vet
+	@echo "--> Linting Go sources ..."
+	@golangci-lint run --config .github/workflows/scripts/golangci.yaml
+
 .PHONY: vet
 vet:
 	@echo "--> Vet Go sources ..."
