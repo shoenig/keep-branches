@@ -42,3 +42,7 @@ vet:
 [group('lint')]
 lint: vet
     $GOBIN/golangci-lint run --config {{scripts}}/golangci.yaml
+
+[group('release')]
+release:
+    envy exec gh-release goreleaser release --clean
