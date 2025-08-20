@@ -1,7 +1,5 @@
 # keep-branches
 
-<img align="right" width="240" height="244" src="https://i.imgur.com/dcoTPpR.png">
-
 `keep-branches` is a CLI tool used to prune local git repository of unwanted branches.
 
 The tool will prune branches that are

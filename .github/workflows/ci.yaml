@@ -17,31 +17,21 @@ jobs:
       - name: verify copyright
         run: |
           copywrite --config .github/workflows/scripts/copywrite.hcl \
-            headers --spdx "MPL-2.0" --plan
-  run-lint:
+            headers --spdx "MIT" --plan
+  run-tests:
     timeout-minutes: 5
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: golangci/golangci-lint-action@v6
-        with:
-          version: v1.60.3
-          args: --config .github/workflows/scripts/golangci.yaml
-  run-tests:
-    timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-24.04
-          - macos-14
-    runs-on: ${{matrix.os}}
-    steps:
-      - uses: actions/checkout@v4
+      - uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff
       - uses: actions/setup-go@v5
         with:
+          cache: false
           go-version-file: go.mod
-          cache-dependency-path: '**/go.sum'
+      - name: Show System
+        run: |
+          uname -a
+          just sysinfo
       - name: Run Go Test
         run: |
-          make test
+          just init tidy lint tests
