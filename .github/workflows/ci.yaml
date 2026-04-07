@@ -24,4 +24,4 @@ jobs:
           just sysinfo
       - name: Run Go Test
         run: |
-          just init tidy lint tests
+          just init tidy lint tests test-e2e
