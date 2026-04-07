@@ -13,6 +13,11 @@ default:
 init:
     go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.11.4
 
+# build the binary
+[group('build')]
+compile:
+    go install
+
 # show host system information
 [group('setup')]
 @sysinfo:
@@ -27,6 +32,11 @@ tidy:
 [group('build')]
 tests:
     go test -v -race -count=1 ./...
+
+# run the e2e test script
+[group('build')]
+test-e2e: compile
+    bash hack/test_keep_branches.sh
 
 # apply go vet command on source tree
 [group('lint')]
