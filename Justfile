@@ -11,17 +11,12 @@ default:
 # locally install build dependencies
 [group('setup')]
 init:
-    go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.0.2
-    go install github.com/hashicorp/copywrite@v0.22.0
+    go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.11.4
 
 # show host system information
 [group('setup')]
 @sysinfo:
     echo "{{os()/arch()}} {{num_cpus()}}c"
-
-# ensure copywrite headers present on source files
-copywrite:
-    $GOBIN/copywrite --config .github/workflows/scripts/copywrite.hcl headers --spdx "MIT"
 
 # tidy up Go modules
 [group('build')]
