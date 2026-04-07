@@ -60,4 +60,4 @@ features and bug fixes. For contributing please file an issue or pull request.
 
 ## License
 
-The `github.com/shoenig/keep-branches` command is open source under the [MPL 2.0](LICENSE) license.
+The `github.com/shoenig/keep-branches` command is open source under the [MIT](LICENSE) license.
